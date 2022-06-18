@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.footer {
+    background-color: #77706e;
+    font-size: 20px;
+}
+
+.bi-bullseye {
+    padding: 0 15px;
+    font-size: 20px;
+}
