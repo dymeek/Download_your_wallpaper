@@ -1,3 +1,12 @@
+<?php 
+
+if(isset($_SESSION['logged_id'])){
+  header('Location: logged.php');
+  exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -12,22 +21,28 @@
 
 </head>
 <body>
-    <div class="container headeer d-flex flex-column flex-sm-row justify-content-between ">
+    <div class="container header d-flex flex-column flex-sm-row justify-content-between ">
         <div class="logo d-flex align-items-center col-12 col-sm-3 col-lg-6"><i class="bi bi-bullseye"></i>
       <h3>Super Tapeta!</h3></div>
-        <form action="logged.php" method="$_POST" class="login col-12 col-sm-3 col-lg-6">
-            <input type="text" name="login">
-            <input type="text" name="password">
+        <form action="logged.php" method="post" class="login col-12 col-sm-3 col-lg-6">
+            <label>Login</label><input type="text" name="login"></label>
+            <label>Hasło<input type="password" name="password"></label>
             <input type="submit" value="Zaloguj się">
+            <?php
+            	if (isset($_SESSION['bad_attempt'])) {
+						  echo '<p class="red">Niepoprawny login lub hasło!</p>';
+						  unset($_SESSION['bad_attempt']);
+					    }
+					  ?>
         </form>
     </div>
-    <div class="container">
+    <div class="container d-flex justify-content-center" >
 <ul class="nav">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Przyroda</a>
+    <a class="nav-link active" aria-current="page" href="">Przyroda</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Miasto</a>
+    <a class="nav-link" href="city.php">Miasto</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">Sport</a>
