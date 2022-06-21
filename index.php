@@ -1,7 +1,10 @@
 <?php
-session_start();
+//  session_start();
 
 require_once "layout/header.php";
+// require_once 'database.php';
+
+
 
 
 ?>

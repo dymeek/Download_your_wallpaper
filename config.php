@@ -1,8 +1,13 @@
 <?php
 
-return [
-    'host' => 'localhost',
-    'user' => 'root',
-    'password' => '',
-    'database' => 'strona_tapety'
-];
+// return [
+//     'host' => 'localhost',
+//     'user' => 'root',
+//     'password' => '',
+//     'database' => 'super_tapety'
+// ];
+
+$host = 'localhost';
+$user = 'root';
+$password = '';
+$database = 'super_tapety';

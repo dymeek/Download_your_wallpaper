@@ -1,9 +1,11 @@
 <?php 
 
-if(isset($_SESSION['logged_id'])){
-  header('Location: logged.php');
-  exit();
-}
+  session_start();
+
+ if(isset($_SESSION['logged_id'])){
+   header('Location: logged.php');
+   exit();
+ }
 
 ?>
 
@@ -24,7 +26,7 @@ if(isset($_SESSION['logged_id'])){
     <div class="container header d-flex flex-column flex-sm-row justify-content-between ">
         <div class="logo d-flex align-items-center col-12 col-sm-3 col-lg-6"><i class="bi bi-bullseye"></i>
       <h3>Super Tapeta!</h3></div>
-        <form action="logged.php" method="post" class="login col-12 col-sm-3 col-lg-6">
+        <form action="logged.php" method="POST" class="login col-12 col-sm-3 col-lg-6">
             <label>Login</label><input type="text" name="login"></label>
             <label>Hasło<input type="password" name="password"></label>
             <input type="submit" value="Zaloguj się">
@@ -37,18 +39,21 @@ if(isset($_SESSION['logged_id'])){
         </form>
     </div>
     <div class="container d-flex justify-content-center" >
-<ul class="nav">
+<ul class="nav"> 
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="">Przyroda</a>
+    <a class="nav-link active"href="index.php">Strona główna</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="nature.php">Przyroda</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="city.php">Miasto</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Sport</a>
+    <a class="nav-link" href="sport.php">Sport</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Film</a>
+    <a class="nav-link" href="entertainment.php">Film</a>
   </li>
 </ul>
 </div>
