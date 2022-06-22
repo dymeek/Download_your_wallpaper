@@ -17,10 +17,9 @@
         $userQuery->bindValue(':login', $login, PDO::PARAM_STR);
         $userQuery->execute();    
 
-        //  echo $login . " " . $password;
-
         $user = $userQuery->fetch();
 
+        //sprawdzanie zgodności hasła i przypisywanie id użytkowniak do sesji
         if($user && password_verify($password, $user['password'])){
             $_SESSION['logged_id'] = $user['id'];
             unset($_SESSION['bad_attempt']);

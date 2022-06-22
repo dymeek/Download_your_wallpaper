@@ -12,20 +12,9 @@ $wallpapers = get_wallpapers();
         <?php
             foreach($wallpapers as $wallpaper){ ?>
                 <div class="col col-sm-2 col-md-4 col-lg-3">
-                <div class="card" style="width: 200px;" style="height: 150px;">
-                <a href="<?php 
-                if($wallpaper['category'] == "city"){
-                   "city.php";
-                }else if($wallpaper['category'] == "sport") {
-                    "sport.php";
-                }else if($wallpaper['category' == "nature"]){
-                    "nature.php";
-                }else {
-                    "entertainmetn.php";
-                }
-                
-                ?>
-                "><img src="/images/<?php echo $wallpaper['image']; ?>" class="card-img-top" alt="<?php echo $wallpaper['category']; ?>" ></a>
+                <div class="card" style="width: 200px; height: 150px;">
+                <a href="<?php "show.php"; ?>
+                "><img src="/images/<?php echo $wallpaper['image']; ?>" class="card-img-top" alt="<?php echo $wallpaper['category']; ?>" style="width: 200px; height: 150px;" ></a>
                 </div>
             </div>
            <?php }

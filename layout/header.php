@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 
   session_start();
 
@@ -7,7 +7,7 @@
    exit();
  }
 
-?>
+?> 
 
 <!DOCTYPE html>
 <html lang="pl">
