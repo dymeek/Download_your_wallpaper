@@ -43,7 +43,7 @@ require "database.php";
 </html>
 
  <?php 
-
+// koniecznie dodać sprawdzenie warunków -> czy istnieje taki użytkownik i czy hasła się nie różnią 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $userLogin = $_POST['userLogin'];
     $passOne = $_POST['passOne'];
