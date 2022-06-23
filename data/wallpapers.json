@@ -1,7 +1,7 @@
 [
     {
         "name": "Berlin_01",
-        "category": "city",
+        "category": "Miasto",
         "weight": "47kb",
         "resolution": "640x426",
         "description": "Miasto Berlin",
@@ -11,7 +11,7 @@
 
     {
         "name": "Sport_01",
-        "category": "sport",
+        "category": "Sport",
         "weight": "247kb",
         "resolution": "1280x589",
         "description": "Stadion piłkarski",
@@ -20,7 +20,7 @@
 
     {
         "name": "Natura_01",
-        "category": "nature",
+        "category": "Natura",
         "weight": "185kb",
         "resolution": "1280x719",
         "description": "Góry zimą",
@@ -28,7 +28,7 @@
     },
     {
         "name": "Film_01",
-        "category": "entertainment",
+        "category": "Rozrywka",
         "weight": "134kb",
         "resolution": "640x360",
         "description": "Shire!",
