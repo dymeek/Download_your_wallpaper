@@ -81,7 +81,7 @@ $status = '';
             <labelclass="form-label">Data dodania:</label>
             <input class="form-control" type="date" name="addDate" id="addDate">
             </div>
-            <input class="btn btn-primary m-3 " type="submit" name="submitOne" value="Dodaj">
+            <input class="btn btn-primary m-3 ps-5 pe-5" type="submit" name="submitOne" value="Dodaj">
             <div class="form status text-danger">
                 <?php echo $status; ?>
             </div>

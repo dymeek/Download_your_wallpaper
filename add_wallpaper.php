@@ -1,3 +1,37 @@
+<?php
+
+require 'database.php';
+
+if(isset($_POST['submit'])){
+    
+    $file_category = $_POST['file_category'];
+    $name = $_POST['name'];
+    $file_resolution = $_POST['file_resolution'];
+    $file_weight = $_POST['file_weight'];
+    $upload_date = $_POST['upload_date'];    
+    $description= $_POST['description'];
+    $file_to_upload = $_FILES['file_to_upload']['name'];
+
+    $tmp_dir = $_FILES['file_to_upload']['tmp_name'];
+    $upload_dir = 'uploads';
+
+    $imgExt = strtolower(pathinfo($file_to_upload, PATHINFO_EXTENSION));
+    $valid_extensions = array('jpeg', 'jpg', 'png');
+    // $wallpaper_image = rand(1000, 1000000) . "." . $imgExt;
+    $wallpaper_image = $imgExt;
+    move_uploaded_file($tmp_dir, $upload_dir.$wallpaper_image);
+
+    $wallpaper_db ="INSERT INTO wallpapers (id, category, name, weight, resolution, description, date, image) VALUES (NULL, :file_category, :name, :file_resolution, :file_weight, :description, :upload_date, :image)";
+    $stmt = $db->prepare($wallpaper_db);
+    $stmt->execute(['file_category' => $file_category, 'name' => $name, 'file_resolution' => $file_resolution, 'file_weight' => $file_weight, 'description' => $description, 'upload_date' => $upload_date, 'image' =>$wallpaper_image ]);
+
+    // $target_dir = "uploads/";
+    // $target_file = $target_dir . basename($_FILES["fileToUpload"]["file_name"]);
+    // $uploadOk = 1; 
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -13,35 +47,35 @@
 
     <div class="container">
         <h2 class="text-center">Dodaj nową tapetę</h2>
-        <form action="upload.php" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
             <label class="form-label">Kategoria:</label>
-            <input class="form-control" type="text" name="fileCategory" id="fileCategory">
+            <input class="form-control" type="text" name="file_category" id="fileCategory">
             </div>
             <div class="mb-3">
             <label class="form-label">Nazwa:</label>
-            <input class="form-control" type="text" name="fileName" id="fileName">
+            <input class="form-control" type="text" name="name" id="fileName">
             </div>
             <div class="mb-3">
             <labelclass="form-label">Rozdzielczość:</label>
-            <input class="form-control" type="text" name="fileResolution" id="fileResolution">
+            <input class="form-control" type="text" name="file_resolution" id="fileResolution">
             </div>
             <div class="mb-3">
             <labelclass="form-label">Waga zdjęcia:</label>
-            <input class="form-control" type="text" name="fileWeight" id="fileWeight">
+            <input class="form-control" type="text" name="file_weight" id="fileWeight">
             </div>
             <div>
             <labelclass="form-label">Data dodania:</label>
-            <input class="form-control" type="date" value="uploadDate" id="uploadDate">
+            <input class="form-control" type="date" name="upload_date" id="uploadDate">
             </div>
             <div>
             <labelclass="form-label">Opis:</label>
-            <textarea class="form-control form-control-lg" id="formFileLg" type="file"></textarea>
+            <textarea class="form-control form-control-lg" id="formFileLg" type="file" name="description"></textarea>
             </div>
             <div>
             <label class="form-label">Wybierz plik do dodania:</label>
-            <input class="form-control" type="file" name="fileToUpload" id="fileToUpload">
-            <input class="btn btn-primary" type="submit" value="Dodaj">
+            <input class="form-control" type="file" name="file_to_upload" id="file_to_upload">
+            <input class="btn btn-primary" type="submit" name="submit" value="Dodaj">
             </div>
         </form>
     </div>
