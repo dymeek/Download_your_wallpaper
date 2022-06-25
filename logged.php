@@ -13,7 +13,7 @@
         $password = filter_input(INPUT_POST, 'password');
 
         //zapytanie do bazy danych i próba wyszukania użytkownika
-        $userQuery = $db->prepare('SELECT id, password FROM users WHERE login = :login');
+        $userQuery = $db->prepare("SELECT id, password FROM users WHERE login = :login");
         $userQuery->bindValue(':login', $login, PDO::PARAM_STR);
         $userQuery->execute();    
 
