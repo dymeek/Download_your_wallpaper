@@ -11,19 +11,19 @@ $status = '';
         $addDate = $_POST['addDate'];
 
         if(empty($userLogin) || empty($passOne) || empty($addDate) ){
-                 $status = "Wszystkie pola muszą być uzupełnione";
+                 $err_msg = "Wszystkie pola muszą być uzupełnione";
         }else {
             if(strlen($userLogin) >= 20 || !preg_match("/^[a-zA-Z-'\s]+$/", $userLogin)){
-                $status = "Podaj prawidłowy login";
+                $err_msg = "Podaj prawidłowy login";
             }else if($passOne !== $passTwo) {
-                $status = "Podane hasła muszą być identyczne";
+                $err_msg = "Podane hasła muszą być identyczne";
             }else {
 
                 $sql ="INSERT INTO users (id, login, password, data) VALUES (NULL, :userLogin, :passOne, :addDate)";
                 $stmt = $db->prepare($sql);
                 $stmt->execute(['userLogin' => $userLogin, 'passOne' => $passOne, 'addDate' => $addDate]); 
 
-                $status = "Użytkownik został dodany";
+                $err_msg = "Użytkownik został dodany";
                 $userLogin = "";
                 $passOne = "";    
                 $passTwo = "";
@@ -83,7 +83,7 @@ $status = '';
             </div>
             <input class="btn btn-primary m-3 ps-5 pe-5" type="submit" name="submitOne" value="Dodaj">
             <div class="form status text-danger">
-                <?php echo $status; ?>
+                <?php echo $err_msg; ?>
             </div>
         </form>
     </div>

@@ -2,32 +2,42 @@
 
 require 'database.php';
 
-if(isset($_POST['submit'])){
+// if(isset($_POST['submit'])){
+    $err_msg = '';
+if($_SERVER["REQUEST_METHOD"] == "POST"){   
+    
     
     $file_category = $_POST['file_category'];
-    $name = $_POST['name'];
+    $foto_name = $_POST['foto_name'];
     $file_resolution = $_POST['file_resolution'];
     $file_weight = $_POST['file_weight'];
     $upload_date = $_POST['upload_date'];    
     $description= $_POST['description'];
     $file_to_upload = $_FILES['file_to_upload']['name'];
 
+    if(empty($file_category) || empty($foto_name) || empty($file_resolution) || empty($file_weight) || empty($upload_date) || empty($description)){
+        $err_msg = "Proszę uzupełnić wszystkie pola";
+    }else {   
+
     $tmp_dir = $_FILES['file_to_upload']['tmp_name'];
-    $upload_dir = 'uploads';
 
-    $imgExt = strtolower(pathinfo($file_to_upload, PATHINFO_EXTENSION));
-    $valid_extensions = array('jpeg', 'jpg', 'png');
-    // $wallpaper_image = rand(1000, 1000000) . "." . $imgExt;
-    $wallpaper_image = $imgExt;
-    move_uploaded_file($tmp_dir, $upload_dir.$wallpaper_image);
+    //Lokalizacja
+    $upload_dir = 'uploads/'.$file_to_upload;
 
-    $wallpaper_db ="INSERT INTO wallpapers (id, category, name, weight, resolution, description, date, image) VALUES (NULL, :file_category, :name, :file_resolution, :file_weight, :description, :upload_date, :image)";
+    $file_extension = pathinfo($upload_dir, PATHINFO_EXTENSION);
+    $file_extension = strtolower($file_extension);
+
+    // walidacja rozszerzenia
+    $valid_extensions = array('jpeg', 'jpg', 'png');  
+
+    // $wallpaper_image = $imgExt;
+    move_uploaded_file($tmp_dir, $upload_dir);
+
+    $wallpaper_db ="INSERT INTO wallpapers (id, category, name, weight, resolution, description, date, image) VALUES (NULL, :file_category, :foto_name, :file_resolution, :file_weight, :description, :upload_date, :image)";
     $stmt = $db->prepare($wallpaper_db);
-    $stmt->execute(['file_category' => $file_category, 'name' => $name, 'file_resolution' => $file_resolution, 'file_weight' => $file_weight, 'description' => $description, 'upload_date' => $upload_date, 'image' =>$wallpaper_image ]);
+    $stmt->execute(['file_category' => $file_category, 'foto_name' => $foto_name, 'file_resolution' => $file_resolution, 'file_weight' => $file_weight, 'description' => $description, 'upload_date' => $upload_date, 'image' =>$upload_dir ]);
 
-    // $target_dir = "uploads/";
-    // $target_file = $target_dir . basename($_FILES["fileToUpload"]["file_name"]);
-    // $uploadOk = 1; 
+    }
 }
 
 ?>
@@ -54,7 +64,7 @@ if(isset($_POST['submit'])){
             </div>
             <div class="mb-3">
             <label class="form-label">Nazwa:</label>
-            <input class="form-control" type="text" name="name" id="fileName">
+            <input class="form-control" type="text" name="foto_name" id="fileName">
             </div>
             <div class="mb-3">
             <labelclass="form-label">Rozdzielczość:</label>
@@ -75,7 +85,10 @@ if(isset($_POST['submit'])){
             <div>
             <label class="form-label">Wybierz plik do dodania:</label>
             <input class="form-control" type="file" name="file_to_upload" id="file_to_upload">
-            <input class="btn btn-primary" type="submit" name="submit" value="Dodaj">
+            <input class="btn btn-primary" type="submit" name="submit" value="Dodaj">            
+            <div class="form status text-danger">
+                <?php echo $err_msg; ?>
+            </div>
             </div>
         </form>
     </div>
