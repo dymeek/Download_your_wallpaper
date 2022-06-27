@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // $wallpaper_image = $imgExt;
     move_uploaded_file($tmp_dir, $upload_dir);
 
-    $wallpaper_db ="INSERT INTO wallpapers (id, category, name, weight, resolution, description, date, image) VALUES (NULL, :file_category, :foto_name, :file_resolution, :file_weight, :description, :upload_date, :image)";
+    $wallpaper_db ="INSERT INTO wallpapers (id, category, name, resolution, weight, description, date, image) VALUES (NULL, :file_category, :foto_name, :file_resolution, :file_weight, :description, :upload_date, :image)";
     $stmt = $db->prepare($wallpaper_db);
     $stmt->execute(['file_category' => $file_category, 'foto_name' => $foto_name, 'file_resolution' => $file_resolution, 'file_weight' => $file_weight, 'description' => $description, 'upload_date' => $upload_date, 'image' =>$upload_dir ]);
 

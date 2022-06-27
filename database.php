@@ -1,7 +1,7 @@
 <?php
 
 // $config = require "config.php";
-require_once 'config.php';
+require 'config.php';
 
 
 try{

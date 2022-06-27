@@ -3,6 +3,11 @@
 
 require_once "layout/header.php";
 require "lib/functions.php";
+require 'database.php';
+
+// $wallpaper_fetch = $db->query('SELECT * FROM wallpapers');
+// $wallpapers = $wallpaper_fetch->fetchAll();
+
 $wallpapers = get_wallpapers();
 // require_once 'database.php';
 
@@ -15,7 +20,7 @@ $wallpapers = get_wallpapers();
                 <div class="col col-sm-2 col-md-4 col-lg-3">
                 <div class="card" style="width: 200px; height: 150px;">
                 <a href="<?php "show.php" ?>
-                "><img src="/images/<?php echo $wallpaper['image']; ?>" class="card-img-top" alt="<?php echo $wallpaper['category']; ?>" style="width: 200px; height: 150px;" ></a>
+                "><img src="<?php echo $wallpaper['image']; ?>" class="card-img-top" alt="<?php echo $wallpaper['category']; ?>" style="width: 200px; height: 150px;" ></a>
                 </div>
             </div>
            <?php }
@@ -30,7 +35,7 @@ $wallpapers = get_wallpapers();
     <div class="row g-0">
       <?php foreach($wallpapers as $wallpaper) { ?>
       <div class="col-md-4">
-        <img style="width:400px; height:300px;" src="/images/<?php echo $wallpaper['image']; ?>" class="img-fluid rounded-start" alt="<?php echo $wallpaper['category']; ?>">
+        <img style="width:400px; height:300px;" src="<?php echo $wallpaper['image']; ?>" class="img-fluid rounded-start" alt="<?php echo $wallpaper['category']; ?>">
         <button class="btn btn-primary" style="width:400px;">Pobierz</button>
       </div>
       <div class="col-md-4">
