@@ -54,3 +54,14 @@ function get_high_res_wallpaper($limit){
 
     return $high_res_wallpaper;
 }
+
+function get_category() {
+    require 'database.php';
+    $query = 'SELECT category FROM categories';
+
+    $categories = $db->query($query);
+    $category = $categories->fetchAll();
+
+    return $category;
+
+}

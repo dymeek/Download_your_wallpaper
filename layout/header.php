@@ -1,5 +1,6 @@
  <?php 
 
+
   session_start();
 
 //  if(isset($_SESSION['logged_id'])){
@@ -30,27 +31,7 @@
             <label>Login</label><input type="text" name="login"></label>
             <label>Hasło<input type="password" name="password"></label>
             <input type="submit" value="Zaloguj się" name="sumbit">
-            <?php
-            	echo $err_msg;
-					  ?>
+
         </form>
     </div>
-    <div class="container d-flex justify-content-center" >
-<ul class="nav"> 
-  <li class="nav-item">
-    <a class="nav-link active"href="index.php">Strona główna</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="nature.php">Przyroda</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="city.php">Miasto</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="sport.php">Sport</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="entertainment.php">Film</a>
-  </li>
-</ul>
-</div>
+
