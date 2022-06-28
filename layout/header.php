@@ -2,10 +2,10 @@
 
   session_start();
 
- if(isset($_SESSION['logged_id'])){
-   header('Location: logged.php');
-   exit();
- }
+//  if(isset($_SESSION['logged_id'])){
+//    header('Location: logged.php');
+//    exit();
+//  }
 
 ?> 
 
@@ -29,12 +29,9 @@
         <form action="logged.php" method="POST" class="login col-12 col-sm-3 col-lg-6">
             <label>Login</label><input type="text" name="login"></label>
             <label>Hasło<input type="password" name="password"></label>
-            <input type="submit" value="Zaloguj się">
+            <input type="submit" value="Zaloguj się" name="sumbit">
             <?php
-            	if (isset($_SESSION['bad_attempt'])) {
-						  echo '<p class="red">Niepoprawny login lub hasło!</p>';
-						  unset($_SESSION['bad_attempt']);
-					    }
+            	echo $err_msg;
 					  ?>
         </form>
     </div>
