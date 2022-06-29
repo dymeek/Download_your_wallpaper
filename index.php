@@ -4,15 +4,13 @@
 require 'lib/functions.php';
 require 'database.php';
 require  "layout/header.php";
+require 'layout/nav.php';
 
 $categories = get_category();
 $newest_wallpapers = get_newest_wallpapers(8);
 $high_res_wallpaper = get_high_res_wallpaper(8);
 $wallpapers = get_wallpapers();
 
-
-
-// require 'database.php';
 
 // if (!empty($_POST['login']) && !empty($_POST['password']))
 // {
@@ -21,18 +19,6 @@ $wallpapers = get_wallpapers();
 
 ?>
 
-<div class="container d-flex justify-content-center" >
-    <ul class="nav"> 
-        <li class="nav-item">
-            <a class="nav-link"href="index.php">Strona główna</a>
-        </li>
-        <?php foreach($categories as $category) { ?>
-        <li class="nav-item">
-            <a class="nav-link" href="show_category.php"><?php echo $category['category']; ?></a>
-        </li>
-        <?php } ?>
-    </ul>
-</div>
 
 <div class="container">
     <h3 class="text-center mb-4">Najnowsze tapety!</h3>

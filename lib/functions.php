@@ -65,3 +65,19 @@ function get_category() {
     return $category;
 
 }
+
+function get_wallpaper_by_category($category) {
+    require 'database.php';
+    $query = 'SELECT * FROM wallpapers, categories WHERE wallpapers.category = categories.category AND categories.category = ';
+    if($query !== 0){
+        $query = $query . ' "' . $category . '"';
+    }
+    
+
+    $categories = $db->query($query);
+    $wallpapers_by_category = $categories->fetchAll();
+
+
+    return $wallpapers_by_category;
+}
+

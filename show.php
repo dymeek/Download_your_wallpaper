@@ -1,10 +1,11 @@
 <?php
 require 'lib/functions.php';
-require 'database.php';
+
 
 $id = $_GET['id'];
 // $query = 'SELECT * FROM wallpapers';
 $wallpaper = get_wallpaper($id); 
+$categories = get_category();
 
 
 ?>
@@ -12,7 +13,11 @@ $wallpaper = get_wallpaper($id);
 
 <?php
 require 'layout/header.php';
+require 'layout/nav.php';
 ?>
+
+
+
 
 <div class="container">
     <div class="card mb-3 lg-6">
