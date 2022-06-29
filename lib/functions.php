@@ -57,7 +57,7 @@ function get_high_res_wallpaper($limit){
 
 function get_category() {
     require 'database.php';
-    $query = 'SELECT category FROM categories';
+    $query = 'SELECT * FROM categories';
 
     $categories = $db->query($query);
     $category = $categories->fetchAll();
@@ -79,5 +79,16 @@ function get_wallpaper_by_category($category) {
 
 
     return $wallpapers_by_category;
+}
+
+function get_users() {
+    require 'database.php';
+    // $query = 'SELECT * FROM users';
+
+    $users = $db->query('SELECT * FROM users');
+    $user = $users->fetchAll();
+
+    return $user;
+
 }
 

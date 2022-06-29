@@ -41,15 +41,33 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         </form>
     </div>
 
+<div class="container">
+    <div class="table-responsive">
+    <h2 class="text-center">Lista dostępnych kategorii</h2>
+        <table class="table table-bordered">
+        <thead>
+            <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Data dodania</th>
+            <th scope="col">Kategoria</th>
+            <th scope="col">Edytuj</th>
+            <th scope="col">Usuń</th>
+            </tr>
+            <tr>
+        <?php foreach($categories as $category) { ?>        
+        <th scope="row"><?php  echo $category['category_id']; ?></th>        
+         <td><?php echo $category['date']; ?></td>
+         <td><?php echo $category['category']; ?></td>
+         <td>Edytuj</td>
+         <td>Usuń</td>
+        </tr>
+            <?php } ?>
+        </thead>
+        <tbody>
 
-    <h2 class="text-center">Lista dostępnych kategorii!</h2>
-<div class="container d-flex justify-content-start" >
-    <ul class="nav d-flex flex-column"> 
-        <?php foreach($categories as $category) { ?>
-        <li class="nav-item">
-            <?php echo $category['category']; ?></li>
-        <?php } ?>
-    </ul>
+        </table>
+    </div>
 </div>
+
 
 <?php require 'layout/footer.php'; ?>

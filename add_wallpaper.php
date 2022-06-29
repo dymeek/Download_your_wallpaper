@@ -1,6 +1,8 @@
 <?php
 
 require 'database.php';
+require 'lib/functions.php';
+$wallpapers = get_wallpapers();
 
 // if(isset($_POST['submit'])){
     $err_msg = '';
@@ -85,5 +87,32 @@ require 'layout/header_log.php';
             </div>
         </form>
     </div>
-</body>
-</html>
+
+    <div class="container">
+    <div class="table-responsive">
+    <h2 class="text-center">Lista tapet</h2>
+        <table class="table table-bordered">
+        <thead>
+            <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Data dodania</th>
+            <th scope="col">Nazwa</th>
+            <th scope="col">Edytuj</th>
+            <th scope="col">Usuń</th>
+            </tr>
+            <tr>
+        <?php foreach($wallpapers as $wallpaper) { ?>        
+        <th scope="row"><?php  echo $wallpaper['id']; ?></th>        
+         <td><?php echo $wallpaper['date']; ?></td>
+         <td><?php echo $wallpaper['name']; ?></td>
+         <td>Edytuj</td>
+         <td>Usuń</td>
+        </tr>
+            <?php } ?>
+        </thead>
+        <tbody>
+
+        </table>
+    </div>
+</div>
+<?php require 'layout/footer.php';

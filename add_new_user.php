@@ -1,6 +1,9 @@
 <?php 
 
 require "database.php";
+require 'lib/functions.php';
+$users = get_users();
+
 // koniecznie dodać sprawdzenie warunków -> czy istnieje taki użytkownik i czy hasła się nie różnią 
 $err_msg = '';
 
@@ -67,5 +70,33 @@ require 'layout/header_log.php';
             </div>
         </form>
     </div>
+
+    <div class="container">
+    <h2 class="text-center">Lista użytkowników</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+        <thead>
+            <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Data dodania</th>
+            <th scope="col">Kategoria</th>
+            <th scope="col">Edytuj</th>
+            <th scope="col">Usuń</th>
+            </tr>
+            <tr>
+        <?php foreach($users as $user) { ?>        
+        <th scope="row"><?php  echo $user['id']; ?></th>        
+         <td><?php echo $user['date']; ?></td>
+         <td><?php echo $user['login']; ?></td>
+         <td>Edytuj</td>
+         <td>Usuń</td>
+        </tr>
+            <?php } ?>
+        </thead>
+        <tbody>
+
+        </table>
+    </div>
+</div>
 
 <?php require 'layout/footer.php'; ?>

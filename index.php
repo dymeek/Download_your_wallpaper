@@ -25,7 +25,7 @@ $wallpapers = get_wallpapers();
     <div class="row">
         <?php
             foreach($newest_wallpapers as $wallpaper){ ?>
-                <div class="col col-sm-2 col-md-4 col-lg-3">
+                <div class="col col-sm-2 col-md-4 col-lg-3 mb-1">
                 <div class="card" style="width: 200px; height: 150px;">
                 <a href="show.php?id=<?php echo $wallpaper['id']; ?>">
                 <img src="<?php echo $wallpaper['image']; ?>" class="card-img-top" alt="<?php echo $wallpaper['category']; ?>" style="width: 200px; height: 150px;" ></a>
@@ -41,7 +41,7 @@ $wallpapers = get_wallpapers();
     <div class="row">
         <?php
             foreach($high_res_wallpaper as $wallpaper){ ?>
-                <div class="col col-sm-2 col-md-4 col-lg-3">
+                <div class="col col-sm-2 col-md-4 col-lg-3 mb-1">
                 <div class="card" style="width: 200px; height: 150px;">
                 <a href="show.php?id=<?php echo $wallpaper['id']; ?>" >
                 <img src="<?php echo $wallpaper['image']; ?>" class="card-img-top" alt="<?php echo $wallpaper['category']; ?>" style="width: 200px; height: 150px;" ></a>
