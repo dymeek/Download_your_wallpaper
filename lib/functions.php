@@ -82,8 +82,7 @@ function get_wallpaper_by_category($category) {
 }
 
 function get_users() {
-    require 'database.php';
-    // $query = 'SELECT * FROM users';
+    require 'database.php';   
 
     $users = $db->query('SELECT * FROM users');
     $user = $users->fetchAll();

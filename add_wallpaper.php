@@ -1,7 +1,8 @@
 <?php
 
-require 'database.php';
 require 'lib/functions.php';
+require 'database.php';
+
 $wallpapers = get_wallpapers();
 
 // if(isset($_POST['submit'])){

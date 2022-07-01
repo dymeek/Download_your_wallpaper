@@ -1,6 +1,7 @@
 <?php
 
 
+
 require 'lib/functions.php';
 require 'database.php';
 require  "layout/header.php";

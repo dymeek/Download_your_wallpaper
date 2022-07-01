@@ -16,9 +16,23 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $stmt->bindParam('new_category', $new_category);
         $stmt->execute(); 
 
-    }
+    }  
+}
 
-    
+if(isset($_REQUEST['delete'])){
+
+    $id = $_REQUEST['id'];
+
+$sql = "DELETE FROM categories WHERE category_id = :id";
+$result = $db->prepare($sql);
+$result->bindParam('id', $id);
+$result->execute();
+
+echo $result->rowCount() . " Wiersz usunięty<br>";
+
+unset($result);
+
+
 }
 
 
@@ -59,7 +73,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
          <td><?php echo $category['date']; ?></td>
          <td><?php echo $category['category']; ?></td>
          <td>Edytuj</td>
-         <td>Usuń</td>
+         <td><form action="" method="POST"><input type="hidden" name="id" value="<?php echo $category['category_id']; ?>"><input type="submit"
+         class="btn btn-danger" name="delete" value="Usuń"></form></td>
         </tr>
             <?php } ?>
         </thead>
