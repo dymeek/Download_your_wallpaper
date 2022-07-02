@@ -26,14 +26,6 @@ if(isset($_POST['submit'])){
         }
     }
 }
- 
-
-
-
-
-
-
-
 
 ?> 
 
@@ -53,13 +45,13 @@ if(isset($_POST['submit'])){
 <link rel="stylesheet" href="../css/style.css">
 
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
     <div class="container header d-flex flex-column flex-sm-row justify-content-between ">
         <div class="logo d-flex align-items-center col-12 col-sm-3 col-lg-6"><i class="bi bi-bullseye"></i>
       <h3>Super Tapeta!</h3></div>
      
-        <form action="logged.php" method="POST" class="login col-12 col-sm-3 col-lg-6">
+        <form action="login.php" method="POST" class="login col-12 col-sm-3 col-lg-6">
             <label>Login</label><input type="text" name="login"></label>
             <label>Hasło<input type="password" name="password"></label>
             <input type="submit" value="Zaloguj się" name="submit">

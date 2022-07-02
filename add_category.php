@@ -4,37 +4,58 @@ require 'database.php';
 require 'lib/functions.php';
 $categories = get_category();
 
+//dodowanie elemnetu do tablicy
 $err_msg = '';
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $new_category = $_POST['new_category'];
-    if(empty($_POST['new_category'])){
-        $err_msg = "Pole kategorii musi być wypłenione";
-    }else {
+if(isset($_POST['submit'])){
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $new_category = $_POST['new_category'];
+        if(empty($_POST['new_category'])){
+            $err_msg = "Pole kategorii musi być wypłenione";
+        }else {
 
-        $sql ="INSERT INTO categories (category_id, category) VALUES (NULL, :new_category)";
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam('new_category', $new_category);
-        $stmt->execute(); 
+            $sql ="INSERT INTO categories (category_id, category) VALUES (NULL, :new_category)";
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam('new_category', $new_category);
+            $stmt->execute(); 
 
-    }  
+        }  
+    } 
 }
 
+//usuwanie elementu z tablicy
+$del_msg = '';
 if(isset($_REQUEST['delete'])){
 
     $id = $_REQUEST['id'];
 
-$sql = "DELETE FROM categories WHERE category_id = :id";
-$result = $db->prepare($sql);
-$result->bindParam('id', $id);
-$result->execute();
+    $sql = "DELETE FROM categories WHERE category_id = :id";
+    $result = $db->prepare($sql);
+    $result->bindParam('id', $id);
+    $result->execute();
 
-echo $result->rowCount() . " Wiersz usunięty<br>";
+    $del_msg = $result->rowCount() . " Wiersz usunięty<br>";
 
-unset($result);
-
+    unset($result);
 
 }
 
+//edycja elementu
+$ed_msg = "";
+if(isset($_REQUEST['edit'])){
+    $id = $_REQUEST['id'];
+    $category = $_REQUEST['category_update'];
+    $sql = "UPDATE categories SET category = :category WHERE category_id = :id";
+
+    $result = $db->prepare($sql);
+    $result->bindParam('category', $category);
+    $result->bindParam('id', $id);
+    $result->execute();
+
+    $ed_msg = $result->rowCount() . " Wiersz uaktualniony!<br>";
+
+    unset($result);   
+
+}
 
 ?>
 
@@ -46,9 +67,9 @@ unset($result);
         <form action="" method="post">
             <div class="mb-3">
             <label class="form-label">Nazwa kategorii:</label>
-            <input class="form-control" type="text" name="new_category" value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST') echo $new_category; ?>">
+            <input class="form-control" type="text" name="new_category" >
             </div>
-            <input class="btn btn-primary m-3 ps-5 pe-5" type="submit" name="submitOne" value="Dodaj">
+            <input class="btn btn-primary m-3 ps-5 pe-5" type="submit" name="submit" value="Dodaj">
             <div class="form status text-danger">
                 <?php echo $err_msg; ?>
             </div>
@@ -58,25 +79,34 @@ unset($result);
 <div class="container">
     <div class="table-responsive">
     <h2 class="text-center">Lista dostępnych kategorii</h2>
+    <?php echo $del_msg; ?>
+    <?php echo $ed_msg; ?>
         <table class="table table-bordered">
         <thead>
             <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Data dodania</th>
-            <th scope="col">Kategoria</th>
-            <th scope="col">Edytuj</th>
-            <th scope="col">Usuń</th>
+            <th scope="col" class="text-center">ID</th>
+            <th scope="col" class="text-center">Data dodania</th>
+            <th scope="col" class="text-center">Kategoria</th>
+            <th scope="col" class="text-center">Edytuj</th>
+            <th scope="col" class="text-center">Usuń</th>
             </tr>
             <tr>
-        <?php foreach($categories as $category) { ?>        
-        <th scope="row"><?php  echo $category['category_id']; ?></th>        
-         <td><?php echo $category['date']; ?></td>
-         <td><?php echo $category['category']; ?></td>
-         <td>Edytuj</td>
-         <td><form action="" method="POST"><input type="hidden" name="id" value="<?php echo $category['category_id']; ?>"><input type="submit"
+        <?php foreach($categories as $category) { ?>      
+            <form action="add_category.php" method="POST">
+        <th scope="row" class="text-center"><?php  echo $category['category_id']; ?></th>        
+         <td class="text-center"><?php echo $category['date']; ?></td>
+
+         <td class="text-center"><input type="text" name="category_update" value="<?php echo $category['category']; ?>"></td>
+
+
+         <td class="text-center"><input type="hidden" name="id" value="<?php echo $category['category_id']; ?>"><input type="submit"
+         class="btn btn-success" name="edit" value="Edytuj"></form></td>
+         
+         <td class="text-center"><form action="" method="POST"><input type="hidden" name="id" value="<?php echo $category['category_id']; ?>"><input type="submit"
          class="btn btn-danger" name="delete" value="Usuń"></form></td>
         </tr>
             <?php } ?>
+            
         </thead>
         <tbody>
 

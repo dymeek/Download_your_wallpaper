@@ -6,7 +6,7 @@ $categories = get_category();
 
 ?>
 
-<div class="container d-flex justify-content-center" >
+<div class="container d-flex justify-content-center menu-logout" >
     <ul class="nav"> 
         <li class="nav-item">
             <a class="nav-link"href="index.php">Strona główna</a>
