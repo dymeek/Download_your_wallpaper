@@ -40,21 +40,7 @@ $newest_wallpapers = get_newest_wallpapers(8);
 $high_res_wallpaper = get_high_res_wallpaper(8);
 $wallpapers = get_wallpapers();
 
-
-// if (!empty($_POST['login']) && !empty($_POST['password']))
-// {
-//   var_dump($_POST
-// }
-
 ?>
-
-<form action="login.php" method="POST" class="login col-12 col-sm-3 col-lg-6">
-            <label>Login</label><input type="text" name="login"></label>
-            <label>Hasło<input type="password" name="password"></label>
-            <input type="submit" value="Zaloguj się" name="submit">
-            <!-- <p class="text-danger"><?php echo $err_msg; ?></p> -->
-        </form>
-
 
 <div class="container">
     <h3 class="text-center mb-4">Najnowsze tapety!</h3>
