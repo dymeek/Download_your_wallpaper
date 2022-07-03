@@ -3,21 +3,16 @@ require 'lib/functions.php';
 
 
 $id = $_GET['id'];
-// $query = 'SELECT * FROM wallpapers';
+
 $wallpaper = get_wallpaper($id); 
 $categories = get_category();
 
-
 ?>
-
 
 <?php
 require 'layout/header.php';
 require 'layout/nav.php';
 ?>
-
-
-
 
 <div class="container">
     <div class="card mb-3 lg-6">
@@ -25,7 +20,7 @@ require 'layout/nav.php';
        <?php foreach($wallpaper as $wallpaper) { ?> 
       <div class="col-md-4">
         <img style="width:400px; height:300px;" src="<?php echo $wallpaper['image']; ?>" class="img-fluid rounded-start" alt="<?php echo $wallpaper['category']; ?>">
-        <button class="btn btn-primary" style="width:400px;">Pobierz</button>
+  <a href="<?php echo $wallpaper['image'] ?>" download="<?php echo $wallpaper['name'];?>" class="btn btn-primary"  style="width:400px;" > Pobierz</a>
       </div>
       <div class="col-md-4">
         <div class="card-body">
@@ -42,9 +37,6 @@ require 'layout/nav.php';
     </div>
   </div>
 </div>
-
-
-
 
 <?php
 
