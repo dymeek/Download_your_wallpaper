@@ -29,13 +29,13 @@
                 <a class="nav-link"href="index.php">Strona główna</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link"href="add_wallpaper.php">Tapety</a>
+                <a class="nav-link"href="wallpapers.php">Tapety</a>
             </li>        
             <li class="nav-item">
-                <a class="nav-link" href="add_category.php">Kategorie</a>
+                <a class="nav-link" href="categories.php">Kategorie</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="add_new_user.php">Użytkownicy</a>
+                <a class="nav-link" href="users.php">Użytkownicy</a>
             </li>
         
     </ul>

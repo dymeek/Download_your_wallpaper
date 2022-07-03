@@ -1,5 +1,39 @@
  <?php 
 
+// session_start();
+// require_once 'database.php'; 
+
+
+// $err_msg = '';
+// if(isset($_REQUEST['submit'])){
+//     $login = $_POST['login'];
+//     $password = $_POST['password'];
+
+//     if(empty($_POST['login']) || empty($_POST['password'])){
+//         $err_msg = "Wszystkie pola muszą być wypełnione";
+
+
+//      } else{
+    
+//             $sgl = 'SELECT * FROM users WHERE login = :login AND password = :password';
+//             $query = $db->prepare($sql);
+//             $query->bindParam('login', $login);
+//             $query->bindParam('password', $password);
+//             $query->execute();
+//             $row = $query->rowCount();
+//             $fetch = $query->fetch();
+//             // if($row > 0){
+//             //     $_SESSION['user'] =$fetch['id'];
+//             //     header('Location: add_wallpaper.php');
+//             // }else {
+//             //     $err_msg = "Nierpawidłowy użytkownik lub hasło!"; 
+//             // }
+//         }
+    
+
+// }
+
+
 
 
 ?> 
@@ -26,12 +60,14 @@
         <div class="logo d-flex align-items-center col-12 col-sm-3 col-lg-6"><i class="bi bi-bullseye"></i>
       <h3>Super Tapeta!</h3></div>
      
-        <form action="login.php" method="POST" class="login col-12 col-sm-3 col-lg-6">
+
+        <!-- <form action="login.php" method="POST" class="login col-12 col-sm-3 col-lg-6">
             <label>Login</label><input type="text" name="login"></label>
             <label>Hasło<input type="password" name="password"></label>
             <input type="submit" value="Zaloguj się" name="submit">
-            <p class="text-danger"><?php echo $err_msg; ?></p>
-        </form>
+            <!-- <p class="text-danger"><?php echo $err_msg; ?></p> -->
+        </form> -->
+  
         
     </div>
 
