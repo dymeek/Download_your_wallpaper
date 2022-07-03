@@ -1,7 +1,4 @@
-<?php 
 
-
-?> 
 
 <!DOCTYPE html>
 <html lang="pl">
@@ -28,6 +25,9 @@
 <h1 class="text-center">Menu administracyjne</h1>
 <div class="container d-flex justify-content-center menu-log" >
         <ul class="nav"> 
+            <li class="nav-item">
+                <a class="nav-link"href="index.php">Strona główna</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link"href="add_wallpaper.php">Tapety</a>
             </li>        

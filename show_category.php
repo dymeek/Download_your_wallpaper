@@ -17,7 +17,7 @@ $wallpaper_by_category = get_wallpaper_by_category($category);
 
 
 <div class="container">
-    <h3 class="text-center mb-4">Najnowsze tapety!</h3>
+    <h3 class="text-center mb-4">Tapety z kategorii: <?php echo $category ?> </h3>
     <div class="row">
         <?php
             foreach($wallpaper_by_category as $wallpaper){ ?>

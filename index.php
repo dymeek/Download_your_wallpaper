@@ -1,6 +1,37 @@
 <?php
 
+session_start();
+require_once 'database.php';
 
+
+$err_msg = '';
+if(isset($_REQUEST['submit'])){
+    $login = $_POST['login'];
+    $password = $_POST['password'];
+
+    if(empty($_POST['login']) || empty($_POST['password'])){
+        echo "Wszystkie pola muszą być wypełnione";
+
+
+     } else{
+    
+            $sgl = 'SELECT * FROM users WHERE login = :login AND password = :password';
+            $query = $db->prepare($sql);
+            $query->bindParam('login', $login);
+            $query->bindParam('password', $password);
+            $query->execute();
+            $row = $query->rowCount();
+            $fetch = $query->fetch();
+            // if($row > 0){
+            //     $_SESSION['user'] =$fetch['id'];
+            //     header('Location: add_wallpaper.php');
+            // }else {
+            //     $err_msg = "Nierpawidłowy użytkownik lub hasło!"; 
+            // }
+        }
+    
+
+}
 
 require 'lib/functions.php';
 require 'database.php';
