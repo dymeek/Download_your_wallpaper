@@ -17,11 +17,12 @@
 
 </head>
 <body class="d-flex flex-column min-vh-100">
-<div class="container header d-flex flex-column flex-sm-row justify-content-start ">
-        <div class="logo d-flex align-items-center col-12 col-sm-3 col-lg-6"><i class="bi bi-bullseye"></i>
-      <h3>Super Tapeta!</h3></div>
-    </div>
-
+    <a href="index.php">
+        <div class="container header d-flex flex-column flex-sm-row justify-content-start ">
+            <div class="logo d-flex align-items-center col-12 col-sm-3 col-lg-6"><i class="bi bi-bullseye"></i>
+            <h3>Super Tapeta!</h3></div>
+        </div>
+    </a>
 <h1 class="text-center">Menu administracyjne</h1>
 <div class="container d-flex justify-content-center menu-log" >
         <ul class="nav"> 
@@ -36,7 +37,6 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="users.php">Użytkownicy</a>
-            </li>
-        
+            </li>        
     </ul>
 </div>

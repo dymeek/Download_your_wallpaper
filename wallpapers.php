@@ -51,36 +51,31 @@ require 'layout/header_log.php';
 
 
     <div class="container">
-    <div class="table-responsive">
-    <h2 class="text-center">Lista tapet</h2>
-    <?php $del_msg; ?>
-        <table class="table table-bordered">
-        <thead>
-            <tr>
-            <th scope="col" class="text-center">ID</th>
-            <th scope="col" class="text-center">Data dodania</th>
-            <th scope="col" class="text-center">Nazwa</th>
-            <th scope="col" class="text-center">Edytuj</th>
-            <th scope="col" class="text-center">Usuń</th>
-            </tr>
-            <tr>
-        <?php foreach($wallpapers as $wallpaper) { ?> 
-            <form action="" method="POST">       
-        <th scope="row" class="text-center"><?php  echo $wallpaper['id']; ?></th>        
-         <td class="text-center"><?php echo $wallpaper['date']; ?></td>
-
-         <td class="text-center"><input type="text" name="name_update" value="<?php echo $wallpaper['name']; ?>"></td>
-
-         <td class="text-center"><input type="hidden" name="id" value="<?php echo $wallpaper['id']; ?>"><input type="submit" class="btn btn-success" name="edit" value="Edytuj"></form></td>
-
-         <td class="text-center"><form action="" method="POST"><input type="hidden" name="id" value="<?php echo $wallpaper['id']; ?>"><input type="submit"
-         class="btn btn-danger" name="delete" value="Usuń"></form></td>
-        </tr>
-            <?php } ?>
-        </thead>
-        <tbody>
-
-        </table>
+        <div class="table-responsive">
+            <h2 class="text-center">Lista tapet</h2>
+                <?php $del_msg; ?>
+                <table class="table table-bordered">
+                <thead>
+                    <tr>
+                    <th scope="col" class="text-center">ID</th>
+                    <th scope="col" class="text-center">Data dodania</th>
+                    <th scope="col" class="text-center">Nazwa</th>
+                    <th scope="col" class="text-center">Edytuj</th>
+                    <th scope="col" class="text-center">Usuń</th>
+                    </tr>
+                    <tr>
+                <?php foreach($wallpapers as $wallpaper) { ?> 
+                <form action="" method="POST">       
+                <th scope="row" class="text-center"><?php  echo $wallpaper['id']; ?></th>        
+                    <td class="text-center"><?php echo $wallpaper['date']; ?></td>
+                    <td class="text-center"><input type="text" name="name_update" value="<?php echo $wallpaper['name']; ?>"></td>
+                    <td class="text-center"><input type="hidden" name="id" value="<?php echo $wallpaper['id']; ?>"><input type="submit" class="btn btn-success" name="edit" value="Edytuj"></form></td>
+                    <td class="text-center"><form action="" method="POST"><input type="hidden" name="id" value="<?php echo $wallpaper['id']; ?>"><input type="submit" class="btn btn-danger" name="delete" value="Usuń"></form></td>
+                    </tr>
+                    <?php } ?>
+                </thead>
+                <tbody>
+            </table>
     </div>
 </div>
 

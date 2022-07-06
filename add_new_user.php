@@ -62,7 +62,7 @@ require 'layout/header_log.php';
                 <input class="form-control" type="password" name="passTwo" id="passTwo" value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST') echo $passTwo; ?>">
             </div>
             <div>
-                <labelclass="form-label">Data dodania:</label>
+                <label class="form-label">Data dodania:</label>
                 <input class="form-control" type="date" name="addDate" id="addDate">
             </div>
                 <input class="btn btn-primary m-3 ps-5 pe-5" type="submit" name="submit" value="Dodaj">
