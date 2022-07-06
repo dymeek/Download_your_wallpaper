@@ -96,6 +96,8 @@ $wallpapers = get_wallpapers();
 
 
 
+
+
 <?php
 
 require "layout/footer.php";

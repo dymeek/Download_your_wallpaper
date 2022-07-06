@@ -44,13 +44,13 @@ function get_newest_wallpapers($limit) {
 
 function get_high_res_wallpaper($limit){
     require 'database.php';
-    $query = 'SELECT * FROM wallpapers ORDER BY resolution DESC ';
+    $query = 'SELECT * FROM wallpapers ORDER BY height DESC ';
     if($limit !== 0){
         $query = $query . ' LIMIT ' . $limit;
     }
 
     $wallpaper_fetch = $db->query($query);
-    $high_res_wallpaper = $wallpaper_fetch->fetchAll();
+    $high_res_wallpaper = $wallpaper_fetch->fetchAll();    
 
     return $high_res_wallpaper;
 }
