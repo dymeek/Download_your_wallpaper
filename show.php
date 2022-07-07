@@ -7,8 +7,12 @@ $id = $_GET['id'];
 $wallpaper = get_wallpaper($id); 
 $categories = get_category();
 
- $page = "<title>" . $wallpaper['name'] . "</title>";
-?>
+foreach($wallpaper as $wallpapers){
+  $title = $wallpapers['name'];
+  $description = $wallpapers['description'];
+}
+ 
+ ?>
 
 <?php
 require 'layout/header.php';
@@ -18,7 +22,7 @@ require 'layout/nav.php';
 <div class="container ">
     <div class="card mb-3 lg-6 show_details">
       <div class="row ">
-        <?php foreach($wallpaper as $wallpaper) { ?>          
+        <?php foreach($wallpaper as $wallpaper) { ?>                  
         <div class="col-md-4">
           <img style="width:400px; height:300px;" src="<?php echo $wallpaper['image']; ?>" class="img-fluid rounded-start" alt="<?php echo $wallpaper['category']; ?>">
           <a href="<?php echo $wallpaper['image'] ?>" download="<?php echo $wallpaper['name'];?>" class="btn btn-primary"  style="width:400px;" > Pobierz</a>
