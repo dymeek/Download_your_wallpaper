@@ -33,9 +33,9 @@
      
 
          <form action="login.php" method="POST" class="login col-12 col-sm-3 col-lg-6">
-            <label>Login</label><input type="text" name="login"></label>
-            <label>Hasło<input type="password" name="password"></label>
-            <input type="submit" value="Zaloguj się" name="submit">
+            <label id="label-input">Login<input type="text" name="login" id="input-label"></label>
+            <label id="label-input">Hasło<input type="password" name="password" id="input-label"></label>
+            <input type="submit" value="Zaloguj się" name="submit" id="submit-login">
             
         </form>   
         
