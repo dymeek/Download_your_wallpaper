@@ -2,8 +2,6 @@
 
 session_start();
 if(isset($_POST['submit'])){
-    // $login = $_POST['login'];
-    // $password = $_POST['password'];
 
     if(empty($_POST['login']) || empty($_POST['password'])){
         echo 'wszystkie pola są wymagane';

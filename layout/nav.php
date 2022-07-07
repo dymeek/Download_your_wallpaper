@@ -1,7 +1,5 @@
 <?php
 
-// require 'lib/functions.php';
-
 $categories = get_category();
 
 ?>

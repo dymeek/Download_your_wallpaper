@@ -5,12 +5,6 @@ session_start();
 if(isset($_SESSION['username']));
 
 
-
-
-
-
-
-
 ?>
 <?php require 'layout/header_log.php'; ?>
 
