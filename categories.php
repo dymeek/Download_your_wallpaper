@@ -64,20 +64,14 @@ if(isset($_REQUEST['edit'])){
             <tr>
         <?php foreach($categories as $category) { ?>      
             <form action="add_category.php" method="POST">
-        <th scope="row" class="text-center"><?php  echo $category['category_id']; ?></th>        
-         <td class="text-center"><?php echo $category['date']; ?></td>
-
-         <td class="text-center"><input type="text" name="category_update" value="<?php echo $category['category']; ?>"></td>
-
-
-         <td class="text-center"><input type="hidden" name="id" value="<?php echo $category['category_id']; ?>"><input type="submit"
-         class="btn btn-success" name="edit" value="Edytuj"></form></td>
-         
-         <td class="text-center"><form action="" method="POST"><input type="hidden" name="id" value="<?php echo $category['category_id']; ?>"><input type="submit"
-         class="btn btn-danger" name="delete" value="Usuń"></form></td>
-        </tr>
-            <?php } ?>
-            
+            <th scope="row" class="text-center"><?php  echo $category['category_id']; ?></th>        
+            <td class="text-center"><?php echo $category['date']; ?></td>
+            <td class="text-center"><input type="text" name="category_update" value="<?php echo $category['category']; ?>"></td>
+            <td class="text-center"><input type="hidden" name="id" value="<?php echo $category['category_id']; ?>"><input type="submit" class="btn btn-success" name="edit" value="Edytuj"></form></td>
+            <td class="text-center"><form action="" method="POST"><input type="hidden" name="id" value="<?php echo $category['category_id'];?>"><input type="submit"
+            class="btn btn-danger" name="delete" value="Usuń"></form></td>
+            </tr>
+        <?php } ?>            
         </thead>
         <tbody>
 
