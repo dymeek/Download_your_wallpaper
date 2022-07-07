@@ -21,21 +21,6 @@ if(isset($_REQUEST['delete'])){
     unset($result);
 }
 
-if(isset($_REQUEST['edit'])){
-    $id = $_REQUEST['id'];
-    $name = $_REQUEST['name_update'];
-
-    $sql = 'UPDATE wallpapers SET name = :name_update WHERE id = :id';
-    $result = $db->prepare($sql);
-    $result->bindParam('id', $id);
-    $result->bindParam('name_update', $name);
-
-    $result->execute();
-
-
-    unset($result);
-}
-
 ?>
 
 <?php
@@ -64,12 +49,13 @@ require 'layout/header_log.php';
                     <th scope="col" class="text-center">Usuń</th>
                     </tr>
                     <tr>
-                <?php foreach($wallpapers as $wallpaper) { ?> 
-                <form action="" method="POST">       
-                <th scope="row" class="text-center"><?php  echo $wallpaper['id']; ?></th>        
+                <?php foreach($wallpapers as $wallpaper) { ?>                      
+                    <th scope="row" class="text-center"><?php  echo $wallpaper['id']; ?></th>        
                     <td class="text-center"><?php echo $wallpaper['date']; ?></td>
-                    <td class="text-center"><input type="text" name="name_update" value="<?php echo $wallpaper['name']; ?>"></td>
-                    <td class="text-center"><input type="hidden" name="id" value="<?php echo $wallpaper['id']; ?>"><input type="submit" class="btn btn-success" name="edit" value="Edytuj"></form></td>
+                    <td class="text-center"><?php echo $wallpaper['name']; ?></td>
+                    
+                    <td class="text-center"><a href="edit_wallpaper.php?id=<?php echo $wallpaper['id']; ?>"><input type="hidden" name="id" value="<?php echo $wallpaper['id']; ?>">
+                    <input type="submit" class="btn btn-success" name="edit" value="Edytuj"></a></td>
                     <td class="text-center"><form action="" method="POST"><input type="hidden" name="id" value="<?php echo $wallpaper['id']; ?>"><input type="submit" class="btn btn-danger" name="delete" value="Usuń"></form></td>
                     </tr>
                     <?php } ?>
