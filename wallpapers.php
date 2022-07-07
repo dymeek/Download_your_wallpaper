@@ -52,8 +52,7 @@ require 'layout/header_log.php';
                 <?php foreach($wallpapers as $wallpaper) { ?>                      
                     <th scope="row" class="text-center"><?php  echo $wallpaper['id']; ?></th>        
                     <td class="text-center"><?php echo $wallpaper['date']; ?></td>
-                    <td class="text-center"><?php echo $wallpaper['name']; ?></td>
-                    
+                    <td class="text-center"><?php echo $wallpaper['name']; ?></td>                    
                     <td class="text-center"><a href="edit_wallpaper.php?id=<?php echo $wallpaper['id']; ?>"><input type="hidden" name="id" value="<?php echo $wallpaper['id']; ?>">
                     <input type="submit" class="btn btn-success" name="edit" value="Edytuj"></a></td>
                     <td class="text-center"><form action="" method="POST"><input type="hidden" name="id" value="<?php echo $wallpaper['id']; ?>"><input type="submit" class="btn btn-danger" name="delete" value="Usuń"></form></td>

@@ -91,3 +91,18 @@ function get_users() {
 
 }
 
+function get_users_by_id($id) {
+    require 'database.php';
+    
+    $query = 'SELECT * FROM users WHERE id = ';
+    if($query !== 0) {
+        $query = $query . $id;
+
+    }
+    $user_fetch = $db->query($query);
+    $user = $user_fetch->fetchAll();
+
+    return $user;
+
+}
+

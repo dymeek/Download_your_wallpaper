@@ -24,24 +24,24 @@ $err_msg = '';
 
     }
 
-    //edycja elementu
-    $ed_msg = "";
-    if(isset($_REQUEST['edit'])){
-        $id = $_REQUEST['id'];
-        $login = $_REQUEST['login_update'];
+    // //edycja elementu
+    // $ed_msg = "";
+    // if(isset($_REQUEST['edit'])){
+    //     $id = $_REQUEST['id'];
+    //     $login = $_REQUEST['login_update'];
 
-        $sql = "UPDATE users SET login = :login WHERE id = :id";
+    //     $sql = "UPDATE users SET login = :login WHERE id = :id";
 
-        $result = $db->prepare($sql);
-        $result->bindParam('login', $login);
-        $result->bindParam('id', $id);
-        $result->execute();
+    //     $result = $db->prepare($sql);
+    //     $result->bindParam('login', $login);
+    //     $result->bindParam('id', $id);
+    //     $result->execute();
 
-        $ed_msg = $result->rowCount() . " Wiersz uaktualniony!<br>";
+    //     $ed_msg = $result->rowCount() . " Wiersz uaktualniony!<br>";
 
-        unset($result);   
+    //     unset($result);   
 
-}
+// }
 
 ?> 
  
@@ -69,13 +69,12 @@ require 'layout/header_log.php';
                 <th scope="col" class="text-center">Usuń</th>
                 </tr>
                 <tr>
-                <?php foreach($users as $user) { ?>      
-                <form action="" method="POST">
+                <?php foreach($users as $user) { ?>               
                 <th scope="row" class="text-center"><?php  echo $user['id']; ?></th>        
                 <td class="text-center"><?php echo $user['date']; ?></td>
-                <td class="text-center"><input type="text" name="login_update" value="<?php echo $user['login']; ?>"></td>         
-                <td class="text-center"><input type="hidden" name="id" value="<?php echo $user['id']; ?>"><input type="submit"
-                class="btn btn-success" name="edit" value="Edytuj"></form></td>         
+                <td class="text-center"><?php echo $user['login']; ?></td>
+                <td class="text-center"><a href="edit_user.php?id=<?php echo $user['id']; ?>"><input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+                <input type="submit" class="btn btn-success" name="edit" value="Edytuj"></a></td>         
                 <td class="text-center"><form action="" method="POST"><input type="hidden" name="id" value="<?php echo $user['id']; ?>"><input type="submit"
                 class="btn btn-danger" name="delete" value="Usuń"></form></td>
                 </tr>
