@@ -1,17 +1,31 @@
 <?php
 require './database.php';
 
+/**
+ * This is a function which get all wallpaper and  details from database
+ * 
+ * function has no paramaters
+ * @return details of wallpapers
+ * @author P.D
+ */
+
 function get_wallpapers() {
     require './database.php';
 
     $wallpaper_fetch = $db->query('SELECT * FROM wallpapers');
     $wallpapers = $wallpaper_fetch->fetchAll();
-    // $wallpapersJson = file_get_contents('data/wallpapers.json');
-    // $wallpapers = json_decode($wallpapersJson, true);
 
     return $wallpapers;
 
 }
+
+/**
+ * This is a function which get wallpaper and details by id from database
+ * 
+ * @param $id first parameter
+ * @return details of wallpapers
+ * @author P.D
+ */
 
 function get_wallpaper($id) {
     require 'database.php';
@@ -28,6 +42,14 @@ function get_wallpaper($id) {
 
 }
 
+/**
+ * This is a function which get wallpapers from database by date of upload to database
+ * 
+ * @param $limit first parameter
+ * @return list of wallpapers limited by $limit
+ * @author P.D
+ */
+
 function get_newest_wallpapers($limit) {
     require 'database.php';
 
@@ -42,6 +64,14 @@ function get_newest_wallpapers($limit) {
     return $newest_wallpapers;
 }
 
+/**
+ * This is a function which get wallpapers from database by reslution
+ * 
+ * @param $limit first parameter
+ * @return list of wallpaper limited by $limit
+ * @author P.D
+ */
+
 function get_high_res_wallpaper($limit){
     require 'database.php';
     $query = 'SELECT * FROM wallpapers ORDER BY height DESC ';
@@ -55,6 +85,14 @@ function get_high_res_wallpaper($limit){
     return $high_res_wallpaper;
 }
 
+/**
+ * This is a function which get list of categories from database
+ * 
+ * function has no parameteres
+ * @return list of categories
+ * @author P.D
+ */
+
 function get_category() {
     require 'database.php';
     $query = 'SELECT * FROM categories';
@@ -65,6 +103,13 @@ function get_category() {
     return $category;
 
 }
+/**
+ * This is a function which get category from database
+ * 
+ * @param $category
+ * @return  category specified by $category
+ * @author P.D
+ */
 
 function get_wallpaper_by_category($category) {
     require 'database.php';
@@ -81,6 +126,14 @@ function get_wallpaper_by_category($category) {
     return $wallpapers_by_category;
 }
 
+/**
+ * This is a function which get list of users from database
+ * 
+ * function has no paramaters
+ * @return  list of users
+ * @author P.D
+ */
+
 function get_users() {
     require 'database.php';   
 
@@ -90,6 +143,14 @@ function get_users() {
     return $user;
 
 }
+
+/**
+ * This is a function which get user from database by $id
+ * 
+ * @param $id
+ * @return  specified user by $id
+ * @author P.D
+ */
 
 function get_users_by_id($id) {
     require 'database.php';
