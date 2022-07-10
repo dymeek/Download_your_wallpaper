@@ -12,14 +12,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     
     $file_category = $_POST['file_category'];
-    $foto_name = $_POST['foto_name'];
-    $upload_date = $_POST['upload_date'];    
+    $foto_name = $_POST['foto_name'];        
     $description= $_POST['description'];
     $file_to_upload = $_FILES['file_to_upload']['name'];
 
-    // if(empty($file_category) || empty($foto_name) || empty($file_resolution) || empty($file_weight) || empty($upload_date) || empty($description))
-
-    if(empty($file_category) || empty($foto_name) || empty($upload_date) || empty($description)){
+    if(empty($file_category) || empty($foto_name) || empty($description)){
         $err_msg = "Proszę uzupełnić wszystkie pola";
     }else {   
 
@@ -45,9 +42,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $res = round($filesize / 1024) . "kb";
 
 
-    $wallpaper_db ="INSERT INTO wallpapers (id, category, name, width, height, weight, description, date, image) VALUES (NULL, :file_category, :foto_name, :width, :height, :file_weight, :description, :upload_date, :image)";
+    $wallpaper_db ="INSERT INTO wallpapers (id, category, name, width, height, weight, description, image) VALUES (NULL, :file_category, :foto_name, :width, :height, :file_weight, :description, :image)";
     $stmt = $db->prepare($wallpaper_db);
-    $stmt->execute(['file_category' => $file_category, 'foto_name' => $foto_name, 'width' => $width, 'height' => $height, 'file_weight' => $res, 'description' => $description, 'upload_date' => $upload_date, 'image' => $upload_dir ]);
+    $stmt->execute(['file_category' => $file_category, 'foto_name' => $foto_name, 'width' => $width, 'height' => $height, 'file_weight' => $res, 'description' => $description, 'image' => $upload_dir ]);
 
     }
    }
@@ -71,10 +68,6 @@ require 'layout/header_log.php';
             <div class="mb-3">
                 <label class="form-label">Nazwa:</label>
                 <input class="form-control" type="text" name="foto_name" id="fileName">
-            </div>
-            <div>
-                <labelclass="form-label">Data dodania:</label>
-                <input class="form-control" type="date" name="upload_date" id="uploadDate">
             </div>
             <div>
                 <labelclass="form-label">Opis:</label>

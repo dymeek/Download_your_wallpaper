@@ -13,9 +13,9 @@ $err_msg = '';
             $userLogin = $_POST['userLogin'];
             $passOne = $_POST['passOne'];    
             $passTwo = $_POST['passTwo'];
-            $addDate = $_POST['addDate'];
+            // $addDate = $_POST['addDate'];
 
-            if(empty($userLogin) || empty($passOne) || empty($addDate) ){
+            if(empty($userLogin) || empty($passOne) ){
                     $err_msg = "Wszystkie pola muszą być uzupełnione";
             }else {
                 if(strlen($userLogin) >= 20 || !preg_match("/^[a-zA-Z-'\s]+$/", $userLogin)){
@@ -24,15 +24,15 @@ $err_msg = '';
                     $err_msg = "Podane hasła muszą być identyczne";
                 }else {
 
-                    $sql ="INSERT INTO users (id, login, password, date) VALUES (NULL, :userLogin, :passOne, :addDate)";
+                    $sql ="INSERT INTO users (id, login, password) VALUES (NULL, :userLogin, :passOne)";
                     $stmt = $db->prepare($sql);
-                    $stmt->execute(['userLogin' => $userLogin, 'passOne' => $passOne, 'addDate' => $addDate]); 
+                    $stmt->execute(['userLogin' => $userLogin, 'passOne' => $passOne]); 
 
                     $err_msg = "Użytkownik został dodany";
                     $userLogin = "";
                     $passOne = "";    
                     $passTwo = "";
-                    $addDate = "";
+                    
                 }
             }
         }
@@ -60,10 +60,6 @@ require 'layout/header_log.php';
             <div class="mb-3">
                 <label class="form-label">Powtórz hasło:</label>
                 <input class="form-control" type="password" name="passTwo" id="passTwo" value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST') echo $passTwo; ?>">
-            </div>
-            <div>
-                <label class="form-label">Data dodania:</label>
-                <input class="form-control" type="date" name="addDate" id="addDate">
             </div>
                 <input class="btn btn-primary m-3 ps-5 pe-5" type="submit" name="submit" value="Dodaj">
             <div class="form status text-danger">
