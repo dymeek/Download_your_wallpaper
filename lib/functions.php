@@ -5,7 +5,7 @@ require './database.php';
  * This is a function which get all wallpaper and  details from database
  * 
  * function has no paramaters
- * @return details of wallpapers
+ * @return  array details of wallpapers
  * @author P.D
  */
 
@@ -22,8 +22,8 @@ function get_wallpapers() {
 /**
  * This is a function which get wallpaper and details by id from database
  * 
- * @param $id first parameter
- * @return details of wallpapers
+ * @param int $id first parameter
+ * @return array details of wallpapers
  * @author P.D
  */
 
@@ -45,8 +45,8 @@ function get_wallpaper($id) {
 /**
  * This is a function which get wallpapers from database by date of upload to database
  * 
- * @param $limit first parameter
- * @return list of wallpapers limited by $limit
+ * @param int $limit first parameter
+ * @return array list of wallpapers limited by $limit
  * @author P.D
  */
 
@@ -67,8 +67,8 @@ function get_newest_wallpapers($limit) {
 /**
  * This is a function which get wallpapers from database by reslution
  * 
- * @param $limit first parameter
- * @return list of wallpaper limited by $limit
+ * @param int $limit first parameter
+ * @return array list of wallpaper limited by $limit
  * @author P.D
  */
 
@@ -89,7 +89,7 @@ function get_high_res_wallpaper($limit){
  * This is a function which get list of categories from database
  * 
  * function has no parameteres
- * @return list of categories
+ * @return array list of categories
  * @author P.D
  */
 
@@ -106,8 +106,8 @@ function get_category() {
 /**
  * This is a function which get category from database
  * 
- * @param $category
- * @return  category specified by $category
+ * @param string $category
+ * @return  array category specified by $category
  * @author P.D
  */
 
@@ -130,7 +130,7 @@ function get_wallpaper_by_category($category) {
  * This is a function which get list of users from database
  * 
  * function has no paramaters
- * @return  list of users
+ * @return array list of users
  * @author P.D
  */
 
@@ -147,8 +147,8 @@ function get_users() {
 /**
  * This is a function which get user from database by $id
  * 
- * @param $id
- * @return  specified user by $id
+ * @param int $id
+ * @return array specified user by $id
  * @author P.D
  */
 
