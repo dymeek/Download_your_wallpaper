@@ -22,9 +22,9 @@ $wallpaper_by_category = get_wallpaper_by_category($category);
         <?php
             foreach($wallpaper_by_category as $wallpaper){ ?>
                 <div class="col col-sm-2 col-md-4 col-lg-3">
-                <div class="card mt-2" style="width: 200px; height: 150px;">
+                <div class="card mt-2 img_wrapper">
                 <a href="show.php?id=<?php echo $wallpaper['id']; ?>">
-                <img src="<?php echo $wallpaper['image']; ?>" class="card-img-top" alt="<?php echo $wallpaper['category']; ?>" style="width: 200px; height: 150px;" ></a>
+                <img src="<?php echo $wallpaper['image']; ?>" class="card-img-top" alt="<?php echo $wallpaper['category']; ?>"></a>
                 </div>
             </div>
            <?php }

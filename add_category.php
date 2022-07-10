@@ -31,7 +31,7 @@ if(isset($_POST['submit'])){
 
 <div class="container">        
 <h2 class="text-center">Dodaj nową kategorię</h2>
-        <form action="" method="post">
+        <form action="" method="post" class="form">
             <div class="mb-3">
             <label class="form-label">Nazwa kategorii:</label>
             <input class="form-control" type="text" name="new_category" >

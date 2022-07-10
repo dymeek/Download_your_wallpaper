@@ -48,7 +48,7 @@ require 'layout/header_log.php';
 
     <div class="container">
         <h2 class="text-center">Dodaj nowego użytkownika</h2>
-        <form action="" method="post">
+        <form action="" method="post" class="form">
             <div class="mb-3">
                 <label class="form-label">Nazwa użytkownika:</label>
                 <input class="form-control" type="text" name="userLogin" id="userLogin" value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST') echo $userLogin; ?>">

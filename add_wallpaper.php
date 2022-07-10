@@ -62,10 +62,10 @@ require 'layout/header_log.php';
 
     <div class="container">
         <h2 class="text-center">Dodaj nową tapetę</h2>
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data" class="form">
             <div class="mb-3">
                 <label class="form-label" for="file_category">Kategoria:</label>                
-                <select name="file_category" id="file_category">
+                <select name="file_category" id="file_category" class="form-select">
                     <option selected disabled>--- Wybierz kategorię ---</option>
                     <?php foreach($category as $category) { ?>
                     <option value="<?php echo $category['category']; ?>"><?php echo $category['category'] ?></option>
