@@ -61,7 +61,6 @@ a {
 
 #input-label {
     margin-left: 10px;
-    border: #1254e0;    
 }
 
 .btn {
@@ -79,6 +78,18 @@ a {
 
 #input_category {
     border: none;
-
+    background: linear-gradient(#1254e0, #cdcdcd); 
 }
+
+.table {
+    background: linear-gradient(#1254e0, #cdcdcd);    
+}
+
+h1, h2,h3,h4,h5,h6 {
+    text-transform: uppercase;
+    background-image: linear-gradient(#20aae1, #2b0b97);
+    background-clip: text;
+    color: transparent;
+}
+
 
