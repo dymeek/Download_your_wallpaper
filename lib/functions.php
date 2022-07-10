@@ -103,6 +103,7 @@ function get_category() {
     return $category;
 
 }
+
 /**
  * This is a function which get category from database
  * 

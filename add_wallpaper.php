@@ -4,21 +4,23 @@ require 'lib/functions.php';
 require 'database.php';
 
 $wallpapers = get_wallpapers();
+$category = get_category();
 
 
     $err_msg = '';
 if(isset($_POST['submit'])){
 if($_SERVER["REQUEST_METHOD"] == "POST"){   
+     
     
-    
-    $file_category = $_POST['file_category'];
-    $foto_name = $_POST['foto_name'];        
+    $file_category = $_POST['file_category']; 
+    $foto_name = $_POST['foto_name'];    
     $description= $_POST['description'];
     $file_to_upload = $_FILES['file_to_upload']['name'];
 
-    if(empty($file_category) || empty($foto_name) || empty($description)){
+    if(empty($foto_name) || empty($description) || empty($file_category)){
         $err_msg = "Proszę uzupełnić wszystkie pola";
     }else {   
+ 
 
     $tmp_dir = $_FILES['file_to_upload']['tmp_name'];
 
@@ -62,15 +64,20 @@ require 'layout/header_log.php';
         <h2 class="text-center">Dodaj nową tapetę</h2>
         <form action="" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
-                <label class="form-label">Kategoria:</label>
-                <input class="form-control" type="text" name="file_category" id="fileCategory">
+                <label class="form-label" for="file_category">Kategoria:</label>                
+                <select name="file_category" id="file_category">
+                    <option selected disabled>--- Wybierz kategorię ---</option>
+                    <?php foreach($category as $category) { ?>
+                    <option value="<?php echo $category['category']; ?>"><?php echo $category['category'] ?></option>
+                    <?php } ?>
+                </select>
             </div>
             <div class="mb-3">
                 <label class="form-label">Nazwa:</label>
                 <input class="form-control" type="text" name="foto_name" id="fileName">
             </div>
             <div>
-                <labelclass="form-label">Opis:</label>
+                <label class="form-label">Opis:</label>
                 <textarea class="form-control form-control-lg" id="formFileLg" type="file" name="description"></textarea>
             </div>
             <div>
