@@ -7,6 +7,7 @@
 body {
     height: 100vh;
     font-family: 'Roboto', sans-serif;
+    -webkit-background-clip: text;
 }
 
 .header {
@@ -106,8 +107,6 @@ font-size: 20px;
 .form select {
 background-color: whitesmoke;    
 }
-
-
 
 .img_wrapper {
     height: 150px;

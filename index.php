@@ -72,7 +72,6 @@ $wallpapers = get_wallpapers();
     </div>
   </div>
 
-
 <?php
 
 require "layout/footer.php";
