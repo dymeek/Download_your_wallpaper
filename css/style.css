@@ -7,11 +7,15 @@
 body {
     height: 100vh;
     font-family: 'Roboto', sans-serif;
-    -webkit-background-clip: text;
+    
 }
 
 .header {
     margin-top: 10px;
+}
+
+.logo h3 {
+    -webkit-background-clip: text;
 }
 
 .footer {
@@ -98,6 +102,8 @@ h1,h2,h3,h4,h5,h6 {
     background-image: linear-gradient(#20aae1, #2b0b97);
     background-clip: text;
     color: transparent;
+    -webkit-background-clip: text;
+    
 }
 
 .form input, .form select, .form textarea {
