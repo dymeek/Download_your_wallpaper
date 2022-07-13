@@ -38,7 +38,7 @@ if(isset($_REQUEST['update'])){
 <div class="container">
         <h2 class="text-center">Edytuj dane użytkownika!</h2>
         <?php foreach($user as $user) { ?>
-        <form action="users.php" method="POST">
+        <form action="" method="POST">
             
             <div class="mb-3">
                 <label class="form-label">Login:</label>
