@@ -64,7 +64,7 @@ if(isset($_REQUEST['edit'])){
             <tr>
 
         <?php foreach($categories as $category) { ?>      
-            <form action="" method="POST">
+            <form action="categories.php" method="POST">
             <th scope="row" class="text-center"><?php  echo $category['category_id']; ?></th>        
             <td class="text-center"><?php echo $category['date']; ?></td>
             <td class="text-center"><input type="text" name="category_update" value="<?php echo $category['category']; ?>" id="input_category"></td>

@@ -36,8 +36,7 @@ if(isset($_REQUEST['update'])){
 <div class="container">
         <h2 class="text-center">Edytuj dane tapety!</h2>
         <?php foreach($wallpaper as $wallpaper) { ?>
-        <form action="" method="POST">
-            
+        <form action="wallpapers.php" method="POST">            
             <div class="mb-3">
                 <label class="form-label">Kategoria:</label>
                 <select name="file_category" id="file_category" class="form-select">

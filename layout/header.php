@@ -31,7 +31,7 @@
     
         <a href="index.php" class="container">
             <div class="container header d-flex flex-column flex-sm-row justify-content-start ">
-                <div class="logo d-flex align-items-center col-12 col-sm-3 col-lg-6">
+                <div class="logo d-flex align-items-center col-12 col-sm-3">
                     <i class="bi bi-bullseye"></i>
                     <h3>Super Tapeta!</h3>
                 </div>
@@ -39,12 +39,12 @@
         </a>
      
 
-         <form action="login.php" method="POST" class="login col-12 col-sm-3 col-lg-6 d-flex flex-column flex-lg-row">
-            <div class="">
+         <form action="login.php" method="POST" class="login col-12 col-sm-3 col-lg-9 d-flex flex-column flex-lg-row justify-content-center justify-content-lg-end">
+            <div class="d-flex flex-column flex-lg-row ml-auto">
             <label id="label-input">Login<input type="text" name="login" id="input-label"></label>       
             <label id="label-input">Hasło<input type="password" name="password" id="input-label"></label>
             </div>
-            <div class="">
+            <div class="ml-1">
             <input type="submit" value="Zaloguj się" name="submit" id="submit-login">
             </div>
             
