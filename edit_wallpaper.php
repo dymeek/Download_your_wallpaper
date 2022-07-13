@@ -6,21 +6,21 @@ require 'lib/functions.php';
 $id = $_GET['id'];
 
 $wallpaper = get_wallpaper($id); 
-
+$category = get_category();
 
 if(isset($_REQUEST['update'])){
     $id = $_REQUEST['id'];
-    $category = $_REQUEST['update_category'];
+    $category = $_REQUEST['file_category'];
     $name = $_REQUEST['update_name'];
     $description = $_REQUEST['update_description'];
 
-    if($_REQUEST['update_category'] == "" ||  $_REQUEST['update_name'] == ""){
+    if($_REQUEST['file_category'] == "" ||  $_REQUEST['update_name'] == ""){
         echo 'Wszystkie pola muszą być uzupełnione!';
     } else {
-        $sql = "UPDATE wallpapers SET category = :update_category, name = :update_name, description = :update_description WHERE id = :id";
+        $sql = "UPDATE wallpapers SET category = :file_category, name = :update_name, description = :update_description WHERE id = :id";
 
         $result = $db->prepare($sql);
-        $result->bindParam('update_category', $category);
+        $result->bindParam('file_category', $category);
         $result->bindParam('update_name', $name);
         $result->bindParam('update_description', $description);
         $result->bindParam('id', $id);
@@ -40,8 +40,14 @@ if(isset($_REQUEST['update'])){
             
             <div class="mb-3">
                 <label class="form-label">Kategoria:</label>
-                <input class="form-control" type="text" name="update_category" id="update_category"
-                value="<?php if(isset($wallpaper['category'])) { echo $wallpaper['category']; } ?>">
+                <select name="file_category" id="file_category" class="form-select">
+                    <option selected disabled>--- Wybierz kategorię ---</option>
+                    <?php foreach($category as $category) { ?>
+                    <option value="<?php echo $category['category']; ?>"><?php echo $category['category'] ?></option>
+                    <?php } ?>
+                </select>
+                <!-- <input class="form-control" type="text" name="update_category" id="update_category"
+                value="<?php if(isset($wallpaper['category'])) { echo $wallpaper['category']; } ?>"> -->
             </div>
 
             <div class="mb-3">

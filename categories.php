@@ -25,11 +25,11 @@ if(isset($_REQUEST['delete'])){
 $ed_msg = "";
 if(isset($_REQUEST['edit'])){
     $id = $_REQUEST['id'];
-    $category = $_REQUEST['category_update'];
-    $sql = "UPDATE categories SET category = :category WHERE category_id = :id";
+    $category = $_REQUEST['category_update']; 
+    $sql = "UPDATE categories SET category = :category_update WHERE category_id = :id";
 
     $result = $db->prepare($sql);
-    $result->bindParam('category', $category);
+    $result->bindParam('category_update', $category);
     $result->bindParam('id', $id);
     $result->execute();
 
@@ -62,8 +62,9 @@ if(isset($_REQUEST['edit'])){
             <th scope="col" class="text-center">Usuń</th>
             </tr>
             <tr>
+
         <?php foreach($categories as $category) { ?>      
-            <form action="add_category.php" method="POST">
+            <form action="" method="POST">
             <th scope="row" class="text-center"><?php  echo $category['category_id']; ?></th>        
             <td class="text-center"><?php echo $category['date']; ?></td>
             <td class="text-center"><input type="text" name="category_update" value="<?php echo $category['category']; ?>" id="input_category"></td>

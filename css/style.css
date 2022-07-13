@@ -65,9 +65,7 @@ a {
     font-weight: bold;
 }
 
-#input-label {
-    margin-left: 10px;
-}
+
 
 .btn {
     text-transform: uppercase;
@@ -131,3 +129,8 @@ background-color: whitesmoke;
     width: 250px;
 }
 
+@media (min-width: 1399px) {
+    #input-label {
+        margin-left: 10px;
+    }
+}

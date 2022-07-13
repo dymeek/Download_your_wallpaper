@@ -39,10 +39,14 @@
         </a>
      
 
-         <form action="login.php" method="POST" class="login col-12 col-sm-3 col-lg-6">
-            <label id="label-input">Login<input type="text" name="login" id="input-label"></label>
+         <form action="login.php" method="POST" class="login col-12 col-sm-3 col-lg-6 d-flex flex-column flex-lg-row">
+            <div class="">
+            <label id="label-input">Login<input type="text" name="login" id="input-label"></label>       
             <label id="label-input">Hasło<input type="password" name="password" id="input-label"></label>
+            </div>
+            <div class="">
             <input type="submit" value="Zaloguj się" name="submit" id="submit-login">
+            </div>
             
         </form>   
         
